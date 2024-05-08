@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, Request
-from langchain_groq import ChatGroq
+from langchain_groq import GroqModel
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -15,7 +15,6 @@ from langchain_community.tools import WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_community.tools import ArxivQueryRun
 from langchain_community.utilities import ArxivAPIWrapper
-from langchain.agents import create_openai_tools_agent
 
 load_dotenv()
 
@@ -24,8 +23,8 @@ app = FastAPI()
 os.environ['GROQ_API_KEY'] = os.getenv("GROQ_API_KEY")
 groq_api_key = os.getenv('GROQ_API_KEY')
 
-llm = ChatGroq(groq_api_key=groq_api_key,
-               model_name="Llama3-8b-8192")
+model_name = "EleutherAI/gpt-j-6B"
+model = GroqModel(model_name=model_name, groq_api_key=groq_api_key)
 
 prompt = ChatPromptTemplate.from_template(
     """
@@ -74,7 +73,10 @@ async def ask_question(request: Request):
     prompt1_en = translator.translate(prompt1, dest='en').text
 
     tools = [app.state.wikipedia_tool, app.state.arxiv_tool]
-    agent = create_openai_tools_agent(llm, tools, prompt)
+    
+    # Crear el agente utilizando el modelo GPT-J con Groq
+    agent = create_custom_tools_agent(model, tools, prompt)
+    
     response = agent.invoke({'input': prompt1_en})
 
     response_es = translator.translate(response['output'], dest='es').text
