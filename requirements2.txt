@@ -16,3 +16,4 @@ wikipedia
 arxiv
 langchain-wikipedia
 langchain-arxiv
+transformers
