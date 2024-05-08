@@ -12,3 +12,7 @@ fastapi
 uvicorn
 sse_starlette
 googletrans
+wikipedia
+arxiv
+langchain-wikipedia
+langchain-arxiv
