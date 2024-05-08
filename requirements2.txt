@@ -11,3 +11,4 @@ langchain-groq
 fastapi
 uvicorn
 sse_starlette
+googletrans
