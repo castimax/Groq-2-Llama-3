@@ -1,6 +1,6 @@
 # Chatbot con FastAPI, Streamlit y LangChain
 
-Este repositorio contiene un chatbot desarrollado utilizando FastAPI, Streamlit y LangChain, junto con el modelo de lenguaje Groq y el almacenamiento vectorial. El chatbot puede responder preguntas basadas en documentos proporcionados en formatos PDF, CSV y JSON.
+Este repositorio contiene un chatbot desarrollado utilizando FastAPI, Streamlit y LangChain, junto con el modelo de lenguaje Groq y el almacenamiento vectorial. El chatbot puede responder preguntas basadas en documentos proporcionados en formatos PDF, CSV y JSON, y utiliza herramientas adicionales como Wikipedia y Arxiv para proporcionar respuestas más completas.
 
 ## Requisitos previos
 - Python 3.7 o superior
@@ -39,30 +39,22 @@ Este repositorio contiene un chatbot desarrollado utilizando FastAPI, Streamlit 
 3. **Instalar las dependencias:**
    - Con el entorno virtual activado, ejecuta el siguiente comando para instalar las dependencias:
      ```
-     pip install -r requirements2.txt
+     pip install -r requirements.txt
      ```
 
-4. **Obtener la clave de API de Groq:**
-   - Ve a la página de inicio de sesión de Groq: [https://groq.com/login](https://groq.com/login)
-   - Inicia sesión en tu cuenta de Groq o crea una nueva cuenta si no tienes una.
-   - Una vez iniciada la sesión, ve a la sección de configuración de tu cuenta.
-   - Busca la opción para generar o ver tu clave de API.
-   - Copia la clave de API de Groq.
+4. **Obtener las claves de API necesarias:**
+   - Obtén las claves de API necesarias para Groq, Hugging Face, Wikipedia y Arxiv.
+   - Sigue las instrucciones proporcionadas en sus respectivas plataformas para obtener las claves de API.
 
-5. **Obtener la clave de API de Hugging Face:**
-   - Ve a la página de inicio de sesión de Hugging Face: [https://huggingface.co/login](https://huggingface.co/login)
-   - Inicia sesión en tu cuenta de Hugging Face o crea una nueva cuenta si no tienes una.
-   - Una vez iniciada la sesión, ve a la sección de configuración de tu cuenta.
-   - Busca la opción para generar o ver tu token de acceso.
-   - Copia el token de acceso de Hugging Face.
-
-6. **Configurar las variables de entorno:**
+5. **Configurar las variables de entorno:**
    - En el directorio raíz del repositorio, crea un nuevo archivo llamado `.env`.
    - Abre el archivo `.env` en un editor de texto.
-   - Agrega las siguientes líneas al archivo, reemplazando `TU_CLAVE_API_GROQ` y `TU_TOKEN_ACCESO_HUGGING_FACE` con las claves correspondientes que obtuviste en los pasos anteriores:
+   - Agrega las siguientes líneas al archivo, reemplazando los valores con las claves de API correspondientes:
      ```
      GROQ_API_KEY=TU_CLAVE_API_GROQ
      HUGGING_FACE_API_TOKEN=TU_TOKEN_ACCESO_HUGGING_FACE
+     WIKIPEDIA_API_KEY=TU_CLAVE_API_WIKIPEDIA
+     ARXIV_API_KEY=TU_CLAVE_API_ARXIV
      ```
    - Guarda y cierra el archivo `.env`.
 
@@ -92,7 +84,7 @@ Este repositorio contiene un chatbot desarrollado utilizando FastAPI, Streamlit 
    - Haz clic en el botón "Obtener respuesta" para enviar la pregunta al chatbot.
    - El chatbot procesará la pregunta y mostrará la respuesta generada junto con el contexto relevante.
 
-¡Eso es todo! Ahora puedes utilizar el chatbot y explorar sus capacidades de respuesta basadas en los documentos proporcionados.
+¡Eso es todo! Ahora puedes utilizar el chatbot y explorar sus capacidades de respuesta basadas en los documentos proporcionados y las herramientas adicionales integradas.
 
 Si tienes alguna pregunta o encuentras algún problema, no dudes en abrir un issue en este repositorio.
 
