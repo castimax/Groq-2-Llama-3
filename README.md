@@ -39,7 +39,7 @@ Este repositorio contiene un chatbot desarrollado utilizando FastAPI, Streamlit 
 3. **Instalar las dependencias:**
    - Con el entorno virtual activado, ejecuta el siguiente comando para instalar las dependencias:
      ```
-     pip install -r requirements.txt
+     pip install -r requirements2.txt
      ```
 
 4. **Obtener la clave de API de Groq:**
